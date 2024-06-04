@@ -2,6 +2,7 @@
 from typing import Any, Type, Optional
 from typing import TYPE_CHECKING
 import re
+
 from netmiko.exceptions import ConnectionException
 from netmiko.exceptions import NetmikoTimeoutException, NetmikoAuthenticationException
 from netmiko.a10 import A10SSH
@@ -58,7 +59,7 @@ from netmiko.dell import DellPowerConnectSSH
 from netmiko.dell import DellPowerConnectTelnet
 from netmiko.dell import DellIsilonSSH
 from netmiko.digi import DigiTransportSSH
-from netmiko.dlink import DlinkDSTelnet, DlinkDSSSH
+from netmiko.dlink import DlinkDSTelnet, DlinkDSSSH, DlinkDGSTelnet, DlinkDGSSSH
 from netmiko.eltex import EltexSSH, EltexEsrSSH
 from netmiko.endace import EndaceSSH
 from netmiko.enterasys import EnterasysSSH
@@ -202,6 +203,7 @@ CLASS_MAPPER_BASE = {
     "dell_sonic": DellSonicSSH,
     "dell_powerconnect": DellPowerConnectSSH,
     "dell_isilon": DellIsilonSSH,
+    "dlink_dgs": DlinkDGSSSH,
     "dlink_ds": DlinkDSSSH,
     "digi_transport": DigiTransportSSH,
     "endace": EndaceSSH,
@@ -335,6 +337,7 @@ CLASS_MAPPER["cisco_s300_telnet"] = CiscoS300Telnet
 CLASS_MAPPER["dell_dnos6_telnet"] = DellDNOS6Telnet
 CLASS_MAPPER["dell_powerconnect_telnet"] = DellPowerConnectTelnet
 CLASS_MAPPER["dlink_ds_telnet"] = DlinkDSTelnet
+CLASS_MAPPER["dlink_dgs_telnet"] = DlinkDGSTelnet
 CLASS_MAPPER["extreme_telnet"] = ExtremeExosTelnet
 CLASS_MAPPER["extreme_exos_telnet"] = ExtremeExosTelnet
 CLASS_MAPPER["extreme_netiron_telnet"] = ExtremeNetironTelnet
